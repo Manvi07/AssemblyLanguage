@@ -96,11 +96,6 @@
     mov EBX, M2
     mov ECX, M3
     call matrix_mult
-
-; nwln
-;     PutCh ' ' 
-;     PutInt [M3]
-
   
 
     mov BX, [R1]
@@ -169,9 +164,6 @@ start:
     imul DX, 2
     movzx EDX, DX
     add EAX, EDX
-    ; PutCh 'p'
-    ; PutInt [EAX]
-    ; nwln
     mult_val:
         mov [sum], word 0
         mov [temp1], word 0
@@ -182,18 +174,13 @@ start:
         
         mult_row:
             movzx EDX, word [i]
-            ; imul [i], 
-            ; mov EAX, A
-            ; add EAX, EDX
+      
             mov DX, [temp1]
             imul DX, 2
             mov [temp], DX
-            ; PutInt [temp]
             mov EDX, [temp]
-            ; PutInt [EAX + EDX]
             mov EDX, [EAX + EDX]
             mov [k], EDX
-            ; nwln
             inc word [temp1]
             
             mult_col:
@@ -202,17 +189,11 @@ start:
                 imul DX, [C2]
                 mov [temp], DX
                 mov EDX, [temp]
-                ; PutInt [EBX + EDX]
+                
                 mov DX, [EBX + EDX]
-                ; PutInt DX
-                ; PutCh ' '
-                ; PutInt [k]
-                ; PutCh ' '
+                
                 imul DX, [k]
-                ; nwln
-                ; PutInt DX
                 add [sum], DX
-                ; nwln
                 inc word [temp2]
                 mov DH, byte [C1]
                 cmp [temp1], DH
